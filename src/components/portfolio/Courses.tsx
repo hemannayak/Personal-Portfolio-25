@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/useInView";
+import { motion } from "framer-motion";
+import { ExternalLink, Award } from "lucide-react";
 
 const items = [
   {
@@ -68,44 +70,81 @@ const items = [
 ];
 
 export default function Courses() {
-  const { ref, inView } = useInView<HTMLDivElement>(0.25);
   return (
-    <section id="courses" className="container mx-auto py-20">
-      <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground mb-8">
-        Courses & Certifications
-      </h2>
+    <section id="courses" className="relative py-24 border-b brutal-border bg-background">
+      <div className="absolute inset-x-0 top-0 h-1 bg-texture-dots opacity-40" />
 
-      {/* Course/Certification Cards */}
-      <div
-        ref={ref}
-        data-inview={inView}
-        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 group"
-      >
-        {items.map((c, i) => (
-          <article
-            key={i}
-            className="rounded-xl border bg-card p-5 shadow-sm opacity-0 group-data-[inview=true]:opacity-100 group-data-[inview=true]:animate-fade-in"
-            style={{ animationDelay: `${i * 0.1}s` }}
-          >
-            <img
-              src={c.logo}
-              alt={`${c.org} logo`}
-              loading="lazy"
-              className="w-full aspect-video object-cover rounded-md mb-3"
-            />
-            <h3 className="font-heading text-lg text-foreground">{c.title}</h3>
-            <p className="text-sm text-muted-foreground">
-              {c.org} • {c.date}
-            </p>
-            <Button size="sm" className="mt-3 font-button hover-scale" asChild>
-              <a href={c.link} target="_blank" rel="noopener">
-                View
-              </a>
-            </Button>
-          </article>
-        ))}
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-16"
+        >
+          <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-primary text-primary-foreground font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
+            System.Certifications
+          </div>
+          <h2 className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tighter">
+            Acquired <br /> <span className="text-muted-foreground/80">Credentials</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {items.map((c, i) => (
+            <CourseCard key={i} c={c} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CourseCard({ c, index }: { c: any; index: number }) {
+  const { ref, inView } = useInView<HTMLDivElement>(0.2);
+
+  return (
+    <motion.article
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.3, delay: index * 0.1 }}
+      className="group relative border-4 border-foreground dark:border-white bg-card p-0 flex flex-col brutal-shadow hover:-translate-y-1 hover:translate-x-1 hover:shadow-none transition-all h-full"
+    >
+      <div className="relative aspect-[16/9] overflow-hidden border-b-4 border-foreground dark:border-white group-hover:bg-primary transition-colors">
+        <div className="absolute inset-0 bg-foreground/10 mix-blend-multiply z-10 group-hover:opacity-0 transition-opacity duration-300" />
+        <img
+          src={c.logo}
+          alt={c.title}
+          loading="lazy"
+          className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
+        />
+        <div className="absolute top-4 right-4 z-20">
+          <Award className="size-8 text-white opacity-40 group-hover:opacity-100 transition-opacity" />
+        </div>
       </div>
 
-    </section>
+      <div className="p-6 flex flex-col flex-1">
+        <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
+          [{c.org}] // {c.date}
+        </div>
+        <h3 className="font-heading text-xl font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors leading-tight mb-6">
+          {c.title}
+        </h3>
+        
+        <div className="mt-auto">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="w-full rounded-none border-2 border-foreground dark:border-white font-mono font-bold uppercase hover:bg-primary hover:text-primary-foreground tracking-widest text-xs h-10 group/btn" 
+            asChild
+          >
+            <a href={c.link} target="_blank" rel="noopener">
+              Verify_Access
+              <ExternalLink className="size-3 ml-2 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </motion.article>
   );
 }

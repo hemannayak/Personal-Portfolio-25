@@ -64,9 +64,13 @@ export default {
           }
         },
         fontFamily: {
-          heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-          body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-          button: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          // Stark, massive geometric sans for headings
+          heading: ['Space Grotesk', 'Inter', 'sans-serif'],
+          // Standard highly legible sans for body
+          body: ['Inter', 'sans-serif'],
+          // Monospace for technical data/stats
+          mono: ['JetBrains Mono', 'Space Mono', 'Courier New', 'monospace'],
+          button: ['Inter', 'sans-serif'],
         },
         borderRadius: {
           lg: 'var(--radius)',
@@ -82,74 +86,29 @@ export default {
             from: { height: 'var(--radix-accordion-content-height)' },
             to: { height: '0' }
           },
-          // New animations
-          'fade-in': {
-            '0%': { opacity: '0', transform: 'translateY(10px)' },
-            '100%': { opacity: '1', transform: 'translateY(0)' }
+          'glitch': {
+            '0%': { transform: 'translate(0)' },
+            '20%': { transform: 'translate(-2px, 2px)' },
+            '40%': { transform: 'translate(-2px, -2px)' },
+            '60%': { transform: 'translate(2px, 2px)' },
+            '80%': { transform: 'translate(2px, -2px)' },
+            '100%': { transform: 'translate(0)' }
           },
-          'fade-out': {
-            '0%': { opacity: '1', transform: 'translateY(0)' },
-            '100%': { opacity: '0', transform: 'translateY(10px)' }
+          'typing': {
+            from: { width: '0' },
+            to: { width: '100%' }
           },
-          'scale-in': {
-            '0%': { transform: 'scale(0.95)', opacity: '0' },
-            '100%': { transform: 'scale(1)', opacity: '1' }
-          },
-          'scale-out': {
-            from: { transform: 'scale(1)', opacity: '1' },
-            to: { transform: 'scale(0.95)', opacity: '0' }
-          },
-          'slide-in-right': {
-            '0%': { transform: 'translateX(100%)' },
-            '100%': { transform: 'translateX(0)' }
-          },
-          'slide-out-right': {
-            '0%': { transform: 'translateX(0)' },
-            '100%': { transform: 'translateX(100%)' }
-          },
-          'fade-slide-up': {
-            '0%': { opacity: '0', transform: 'translateY(16px)' },
-            '100%': { opacity: '1', transform: 'translateY(0)' }
-          },
-          'flip-in': {
-            '0%': { transform: 'rotateX(10deg)', opacity: '0' },
-            '100%': { transform: 'rotateX(0deg)', opacity: '1' }
-          },
-          'bounce-in': {
-            '0%': { transform: 'scale(0.8)', opacity: '0' },
-            '60%': { transform: 'scale(1.05)', opacity: '1' },
-            '100%': { transform: 'scale(1)', opacity: '1' }
-          },
-          'pulse-5s': {
-            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-            '50%': { transform: 'scale(1.05)', opacity: '0.9' }
-          },
-          'typewriter': {
-            '0%': { width: '0' },
-            '100%': { width: '100%' }
-          },
-          'caret': {
-            '0%, 100%': { opacity: '1' },
-            '50%': { opacity: '0' }
-          },
+          'blink-caret': {
+            'from, to': { borderColor: 'transparent' },
+            '50%': { borderColor: 'hsl(var(--primary))' },
+          }
         },
         animation: {
           'accordion-down': 'accordion-down 0.2s ease-out',
           'accordion-up': 'accordion-up 0.2s ease-out',
-          'fade-in': 'fade-in 0.8s ease-out',
-          'fade-out': 'fade-out 0.3s ease-out',
-          'scale-in': 'scale-in 0.2s ease-out',
-          'scale-out': 'scale-out 0.2s ease-out',
-          'slide-in-right': 'slide-in-right 0.3s ease-out',
-          'slide-out-right': 'slide-out-right 0.3s ease-out',
-          'fade-slide-up': 'fade-slide-up 0.8s ease-out',
-          'flip-in': 'flip-in 0.9s ease-out',
-          'bounce-in': 'bounce-in 0.6s ease-out',
-          'pulse-5s': 'pulse-5s 5s ease-in-out infinite',
-          'typewriter': 'typewriter 1.2s steps(30, end) forwards',
-          'caret': 'caret 1s step-end infinite',
-          'enter': 'fade-in 0.3s ease-out, scale-in 0.2s ease-out',
-          'exit': 'fade-out 0.3s ease-out, scale-out 0.2s ease-out'
+          'glitch': 'glitch 0.2s cubic-bezier(.25, .46, .45, .94) both infinite',
+          'typing': 'typing 2s steps(40, end)',
+          'blink': 'blink-caret .75s step-end infinite'
         }
       }
 	},
