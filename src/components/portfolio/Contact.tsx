@@ -25,15 +25,15 @@ export default function Contact() {
             <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-primary text-primary-foreground font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-6 w-fit">
               Sys.Connect
             </div>
-            <h2 className="font-heading text-6xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.9]">
+            <h2 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.9]">
               Let's <br /> <span className="text-muted-foreground/80">Collaborate</span>
             </h2>
             
-            <p className="font-body text-lg text-foreground/80 leading-relaxed mb-12 max-w-md border-l-4 border-primary pl-6">
+            <p className="font-body text-base sm:text-lg text-foreground/80 leading-relaxed mb-10 lg:mb-12 max-w-md border-l-4 border-primary pl-6">
               If you have a challenging project, a random thought, or a poetic spark — my system is ready to process your input.
             </p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
               <SocialCard Icon={Github} label="GitHub" href="https://github.com/hemannayak" />
               <SocialCard Icon={Linkedin} label="LinkedIn" href="https://www.linkedin.com/in/pangoth-hemanth-nayak-13195228b/" />
               <SocialCard Icon={Mail} label="Email" href="mailto:official.hemanthnayakpangoth@gmail.com" />
@@ -48,13 +48,13 @@ export default function Contact() {
             viewport={{ once: true }}
             className="lg:w-1/2"
           >
-            <div className="border-4 border-foreground dark:border-white bg-card brutal-shadow p-8 lg:p-10 relative">
+            <div className="border-4 border-foreground dark:border-white bg-card brutal-shadow p-6 sm:p-8 lg:p-10 relative">
               <div className="absolute top-0 right-0 p-4 font-mono text-[10px] uppercase font-bold opacity-30">Form_404_Handler</div>
               
               <form
                 action="https://formsubmit.co/official.hemanthnayakpangoth@gmail.com"
                 method="POST"
-                className="space-y-6"
+                className="space-y-4 sm:space-y-6"
                 onSubmit={() =>
                   toast({ 
                     title: "System: Message Received", 
@@ -73,7 +73,7 @@ export default function Contact() {
                     required 
                     name="Name_Input" 
                     placeholder="Enter full name" 
-                    className="rounded-none border-2 border-foreground dark:border-white h-12 bg-background focus-visible:ring-primary focus-visible:ring-offset-0" 
+                    className="rounded-none border-2 border-foreground dark:border-white h-11 sm:h-12 bg-background focus-visible:ring-primary focus-visible:ring-offset-0 text-sm sm:text-base" 
                   />
                 </div>
 
@@ -83,7 +83,7 @@ export default function Contact() {
                     type="email" 
                     name="Email_Input" 
                     placeholder="name@provider.com" 
-                    className="rounded-none border-2 border-foreground dark:border-white h-12 bg-background focus-visible:ring-primary focus-visible:ring-offset-0" 
+                    className="rounded-none border-2 border-foreground dark:border-white h-11 sm:h-12 bg-background focus-visible:ring-primary focus-visible:ring-offset-0 text-sm sm:text-base" 
                   />
                 </div>
 
@@ -92,16 +92,16 @@ export default function Contact() {
                     required 
                     name="Message_Body" 
                     placeholder="Initialize conversation details here..." 
-                    className="rounded-none border-2 border-foreground dark:border-white min-h-[160px] bg-background focus-visible:ring-primary focus-visible:ring-offset-0" 
+                    className="rounded-none border-2 border-foreground dark:border-white min-h-[140px] sm:min-h-[160px] bg-background focus-visible:ring-primary focus-visible:ring-offset-0 text-sm sm:text-base" 
                   />
                 </div>
 
                 <Button 
                   type="submit" 
-                  className="w-full h-14 rounded-none border-2 border-foreground dark:border-white bg-primary text-primary-foreground font-mono font-bold text-lg uppercase brutal-shadow transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+                  className="w-full h-12 sm:h-14 rounded-none border-2 border-foreground dark:border-white bg-primary text-primary-foreground font-mono font-bold text-base sm:text-lg uppercase brutal-shadow transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
                 >
                   Send Message
-                  <Send className="ml-3 size-5" />
+                  <Send className="ml-3 size-4 sm:size-5" />
                 </Button>
               </form>
             </div>

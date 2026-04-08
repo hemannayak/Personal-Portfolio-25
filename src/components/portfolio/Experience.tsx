@@ -88,12 +88,12 @@ export default function Experience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16"
+          className="mb-12 sm:mb-16"
         >
           <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-primary text-primary-foreground font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
             Record.History
           </div>
-          <h2 className="font-heading text-6xl sm:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
+          <h2 className="font-heading text-5xl sm:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
             Professional <br /> <span className="text-muted-foreground/80">Logbook</span>
           </h2>
         </motion.div>
@@ -121,22 +121,22 @@ function ExperienceItem({ item, index }: { item: any; index: number }) {
         delay: index * 0.1,
         ease: "easeOut"
       }}
-      className="group relative grid lg:grid-cols-12 border-b-4 border-foreground/10 last:border-0 hover:bg-muted/30 transition-all p-6 lg:p-10 gap-8"
+      className="group relative grid lg:grid-cols-12 border-b-4 border-foreground/10 last:border-0 hover:bg-muted/30 transition-all p-6 sm:p-8 lg:p-10 gap-6 lg:gap-8"
     >
       {/* Timeline Column */}
-      <div className="lg:col-span-3 flex flex-col justify-center border-l-4 border-primary pl-6">
-        <div className="font-mono text-sm font-black uppercase tracking-tighter text-foreground mb-1">
+      <div className="lg:col-span-3 flex flex-col justify-center lg:border-l-4 border-primary lg:pl-6">
+        <div className="font-mono text-sm sm:text-base font-black uppercase tracking-tighter text-foreground mb-1">
           {item.period}
         </div>
-        <div className="font-mono text-[10px] font-bold text-muted-foreground italic uppercase">
+        <div className="font-mono text-[10px] sm:text-xs font-bold text-muted-foreground italic uppercase">
           Node_Deployment: {item.tag}
         </div>
       </div>
 
       {/* Main Content */}
       <div className="lg:col-span-6 flex flex-col justify-center">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-20 h-20 border-2 border-foreground dark:border-white p-2 bg-white shrink-0 brutal-shadow-sm group-hover:shadow-none transition-all">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 border-2 border-foreground dark:border-white p-2 bg-white shrink-0 brutal-shadow-sm group-hover:shadow-none transition-all">
             <img
               src={item.logo}
               alt={item.company}
@@ -144,15 +144,15 @@ function ExperienceItem({ item, index }: { item: any; index: number }) {
             />
           </div>
           <div>
-            <h3 className="font-heading text-2xl lg:text-3xl font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-none mb-1">
+            <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-none mb-1">
               {item.role}
             </h3>
-            <p className="font-mono text-xs font-bold text-foreground/60 uppercase">
+            <p className="font-mono text-[10px] sm:text-xs font-bold text-foreground/60 uppercase">
               {item.company}
             </p>
           </div>
         </div>
-        <p className="font-body text-sm text-foreground/70 leading-relaxed mb-4 lg:pr-8">
+        <p className="font-body text-xs sm:text-sm text-foreground/70 leading-relaxed mb-4 lg:pr-8">
           {item.desc}
         </p>
       </div>
@@ -161,12 +161,12 @@ function ExperienceItem({ item, index }: { item: any; index: number }) {
       <div className="lg:col-span-3 flex items-center lg:justify-end gap-3">
         <Button
           variant="outline"
-          className="rounded-none border-2 border-foreground dark:border-white font-mono font-bold uppercase hover:bg-primary hover:text-primary-foreground brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all h-12 flex-1 lg:flex-none px-6"
+          className="rounded-none border-2 border-foreground dark:border-white font-mono font-bold uppercase hover:bg-primary hover:text-primary-foreground brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all h-10 sm:h-12 flex-1 lg:flex-none px-4 sm:px-6 text-xs sm:text-sm"
           asChild
         >
           <a href={item.offer} target="_blank" rel="noopener">
             View_Docs
-            <ExternalLink className="size-4 ml-2" />
+            <ExternalLink className="size-3 sm:size-4 ml-2" />
           </a>
         </Button>
       </div>

@@ -36,20 +36,20 @@ export default function Education() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-16"
-        >
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: "-100px" }}
+           className="mb-12 sm:mb-16"
+         >
           <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-primary text-primary-foreground font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
             System.Education
           </div>
-          <h2 className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tighter">
+          <h2 className="font-heading text-4xl sm:text-7xl font-black uppercase tracking-tighter">
             Academic <br /> <span className="text-muted-foreground">Framework</span>
           </h2>
         </motion.div>
 
-        <div className="grid gap-8">
+        <div className="grid gap-6 sm:gap-8">
           {items.map((e, i) => (
             <EducationCard key={i} e={e} index={i} />
           ))}
@@ -68,9 +68,9 @@ function EducationCard({ e, index }: { e: any; index: number }) {
       initial={{ opacity: 0, x: -30 }}
       animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="group relative border-4 border-foreground dark:border-white bg-card brutal-shadow p-6 sm:p-8 flex flex-col sm:flex-row gap-8 hover:-translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+      className="group relative border-4 border-foreground dark:border-white bg-card brutal-shadow p-5 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-8 hover:-translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
     >
-      <div className="w-20 h-20 sm:w-24 sm:h-24 border-4 border-foreground dark:border-white p-2 bg-white shrink-0 brutal-shadow relative group-hover:shadow-none transition-all">
+      <div className="w-16 h-16 sm:w-24 sm:h-24 border-4 border-foreground dark:border-white p-2 bg-white shrink-0 brutal-shadow relative group-hover:shadow-none transition-all mx-auto sm:mx-0">
         <img 
           src={e.logo} 
           alt={e.school} 
@@ -78,31 +78,31 @@ function EducationCard({ e, index }: { e: any; index: number }) {
         />
       </div>
 
-      <div className="flex-1 flex flex-col justify-center">
+      <div className="flex-1 flex flex-col justify-center text-center sm:text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
           <div>
-            <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
+            <h3 className="font-heading text-xl sm:text-3xl font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
               {e.school}
             </h3>
-            <p className="font-mono text-sm font-bold text-muted-foreground uppercase tracking-widest mt-1">
+            <p className="font-mono text-xs sm:text-sm font-bold text-muted-foreground uppercase tracking-widest mt-1">
               {e.degree}
             </p>
           </div>
-          <div className="font-mono text-xs font-bold px-3 py-1 bg-foreground text-background whitespace-nowrap self-start">
+          <div className="font-mono text-[10px] sm:text-xs font-bold px-3 py-1 bg-foreground text-background whitespace-nowrap self-center sm:self-start">
             {e.period}
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6 mt-2">
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6 mt-2">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-[10px] font-bold uppercase text-muted-foreground">GPA_REF:</span>
+            <span className="font-mono text-[9px] sm:text-[10px] font-bold uppercase text-muted-foreground">GPA_REF:</span>
             <span className="font-mono text-sm font-black text-primary">{e.gpa}</span>
           </div>
           
           <Button 
             variant="outline" 
             size="sm" 
-            className="rounded-none border-2 border-foreground dark:border-white font-mono font-bold uppercase hover:bg-primary hover:text-primary-foreground tracking-widest text-xs"
+            className="rounded-none border-2 border-foreground dark:border-white font-mono font-bold uppercase hover:bg-primary hover:text-primary-foreground tracking-widest text-[10px] sm:text-xs h-8 sm:h-9"
             asChild
           >
             <a href={e.link} target="_blank" rel="noopener">Access_Website</a>

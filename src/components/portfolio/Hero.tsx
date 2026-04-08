@@ -69,7 +69,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="font-heading text-6xl sm:text-8xl lg:text-9xl font-black uppercase leading-[0.9] tracking-tighter"
+              className="font-heading text-5xl sm:text-7xl lg:text-9xl font-black uppercase leading-[0.9] tracking-tighter"
             >
               Pangoth<br />
               <span className="text-transparent" style={{ WebkitTextStroke: "2px hsl(var(--primary))" }}>
@@ -79,7 +79,7 @@ export default function Hero() {
               Nayak
             </motion.h1>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-6 relative">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 relative">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
               <div className="pl-6 h-12 flex items-center overflow-hidden">
                 <AnimatePresence mode="wait">
@@ -89,7 +89,7 @@ export default function Hero() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -40, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="font-mono text-xl sm:text-2xl font-bold text-primary/80 uppercase tracking-widest"
+                    className="font-mono text-lg sm:text-2xl font-bold text-primary/80 uppercase tracking-widest"
                   >
                     // {roles[index]}
                   </motion.div>
@@ -101,11 +101,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="mt-12 flex flex-wrap gap-4"
+              className="mt-10 sm:mt-12 flex flex-wrap gap-3 sm:gap-4"
             >
               <Button
                 size="lg"
-                className="rounded-none border-2 border-foreground dark:border-white/30 bg-primary text-white hover:bg-primary/80 font-mono font-bold brutal-shadow-primary transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none uppercase tracking-wider"
+                className="flex-1 sm:flex-none rounded-none border-2 border-foreground dark:border-white/30 bg-primary text-white hover:bg-primary/80 font-mono font-bold brutal-shadow-primary transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none uppercase tracking-wider text-xs sm:text-base h-12 sm:h-auto"
                 asChild
               >
                 <a href="#projects">Deploy Portfolio</a>
@@ -113,7 +113,7 @@ export default function Hero() {
                <Button
                 size="lg"
                 variant="outline"
-                className="rounded-none border-2 border-foreground dark:border-white/30 glass font-mono font-bold hover:bg-foreground hover:text-background transition-colors uppercase tracking-wider"
+                className="flex-1 sm:flex-none rounded-none border-2 border-foreground dark:border-white/30 glass font-mono font-bold hover:bg-foreground hover:text-background transition-colors uppercase tracking-wider text-xs sm:text-base h-12 sm:h-auto"
                 asChild
               >
                 <a href="https://drive.google.com/file/d/10Cya3rSyD5J3tnPgdlOJt50qcE7DYPh9/view?usp=sharing" target="_blank">
@@ -122,19 +122,19 @@ export default function Hero() {
               </Button>
               <Button
                 size="lg"
-                className="rounded-none border-2 border-foreground dark:border-white/30 bg-background text-foreground hover:bg-primary hover:text-primary-foreground font-mono font-bold brutal-shadow transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none uppercase tracking-wider group/mail"
+                className="w-full sm:w-auto rounded-none border-2 border-foreground dark:border-white/30 bg-background text-foreground hover:bg-primary hover:text-primary-foreground font-mono font-bold brutal-shadow transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none uppercase tracking-wider group/mail text-xs sm:text-base h-12 sm:h-auto"
                 asChild
               >
                 <a href="mailto:official.hemanthnayakpangoth@gmail.com">
                   Email Me
-                  <Mail className="ml-3 size-5 group-hover/mail:rotate-12 transition-transform" />
+                  <Mail className="ml-3 size-4 sm:size-5 group-hover/mail:rotate-12 transition-transform" />
                 </a>
               </Button>
             </motion.div>
           </div>
 
           {/* Right Profile Image */}
-          <div className="lg:col-span-5 h-[400px] lg:h-[600px] relative order-first lg:order-last border-4 border-foreground dark:border-white/20 glass brutal-shadow overflow-hidden group">
+          <div className="lg:col-span-5 h-[350px] sm:h-[450px] lg:h-[600px] relative order-first lg:order-last border-4 border-foreground dark:border-white/20 glass brutal-shadow overflow-hidden group">
             {/* Window bar */}
             <div className="absolute inset-x-0 top-0 h-8 border-b-4 border-foreground dark:border-white/20 glass flex items-center px-4 gap-2 z-20">
               <div className="w-3 h-3 rounded-full bg-destructive border-2 border-foreground dark:border-white/20" />

@@ -79,17 +79,17 @@ export default function Courses() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16"
+          className="mb-12 sm:mb-16"
         >
           <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-primary text-primary-foreground font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
             System.Certifications
           </div>
-          <h2 className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tighter">
+          <h2 className="font-heading text-4xl sm:text-7xl font-black uppercase tracking-tighter">
             Acquired <br /> <span className="text-muted-foreground/80">Credentials</span>
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {items.map((c, i) => (
             <CourseCard key={i} c={c} index={i} />
           ))}
@@ -118,16 +118,16 @@ function CourseCard({ c, index }: { c: any; index: number }) {
           loading="lazy"
           className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
         />
-        <div className="absolute top-4 right-4 z-20">
-          <Award className="size-8 text-white opacity-40 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20">
+          <Award className="size-6 sm:size-8 text-white opacity-40 group-hover:opacity-100 transition-opacity" />
         </div>
       </div>
 
-      <div className="p-6 flex flex-col flex-1">
-        <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
+      <div className="p-5 sm:p-6 flex flex-col flex-1">
+        <div className="font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
           [{c.org}] // {c.date}
         </div>
-        <h3 className="font-heading text-xl font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors leading-tight mb-6">
+        <h3 className="font-heading text-lg sm:text-xl font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors leading-tight mb-4 sm:mb-6">
           {c.title}
         </h3>
         
@@ -135,7 +135,7 @@ function CourseCard({ c, index }: { c: any; index: number }) {
           <Button 
             variant="outline" 
             size="sm" 
-            className="w-full rounded-none border-2 border-foreground dark:border-white font-mono font-bold uppercase hover:bg-primary hover:text-primary-foreground tracking-widest text-xs h-10 group/btn" 
+            className="w-full rounded-none border-2 border-foreground dark:border-white font-mono font-bold uppercase hover:bg-primary hover:text-primary-foreground tracking-widest text-[10px] sm:text-xs h-9 sm:h-10 group/btn" 
             asChild
           >
             <a href={c.link} target="_blank" rel="noopener">
