@@ -47,17 +47,17 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-12 sm:mb-16"
+          className="mb-16"
         >
           <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-foreground text-background font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
             Module.Skills
           </div>
-          <h2 className="font-heading text-4xl sm:text-7xl font-black uppercase tracking-tighter">
+          <h2 className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tighter">
             Technical <br /> <span className="text-muted-foreground/80">Capacities</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {groups.map((g, index) => (
             <SkillGroup key={g.title} title={g.title} skills={g.skills} index={index} />
           ))}
@@ -76,20 +76,20 @@ function SkillGroup({ title, skills, index }: { title: string; skills: Skill[]; 
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ type: "spring", stiffness: 100, delay: index * 0.1 }}
-      className="border-2 border-foreground dark:border-white p-5 sm:p-6 bg-background brutal-shadow hover:-translate-y-1 transition-transform group"
+      className="border-2 border-foreground dark:border-white p-6 bg-background brutal-shadow hover:-translate-y-1 transition-transform group"
     >
-      <h3 className="font-mono text-xs sm:text-sm tracking-widest font-bold uppercase border-b-2 border-foreground/20 pb-4 mb-5 sm:mb-6 group-hover:text-primary transition-colors">
+      <h3 className="font-mono text-sm tracking-widest font-bold uppercase border-b-2 border-foreground/20 pb-4 mb-6 group-hover:text-primary transition-colors">
         {'>'} {title}
       </h3>
-      <ul className="space-y-5 sm:space-y-6 lg:space-y-8">
+      <ul className="space-y-6 lg:space-y-8">
         {skills.map((s, i) => (
           <li key={s.name}>
-            <div className="flex justify-between font-mono text-[10px] sm:text-xs font-bold mb-2 text-foreground uppercase tracking-tight">
+            <div className="flex justify-between font-mono text-xs font-bold mb-2 text-foreground uppercase tracking-tight">
               <span>{s.name}</span>
               <span>{s.level} / 100</span>
             </div>
             {/* Brutalist segmented or hard-block loading bar */}
-            <div className="h-3 sm:h-4 border-2 border-foreground dark:border-white w-full bg-muted relative overflow-hidden">
+            <div className="h-4 border-2 border-foreground dark:border-white w-full bg-muted relative overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={inView ? { width: `${s.level}%` } : { width: 0 }}

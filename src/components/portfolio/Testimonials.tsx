@@ -57,12 +57,12 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-12 sm:mb-16 text-center"
+          className="mb-16 text-center"
         >
           <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-primary text-primary-foreground font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
             System.Feedback
           </div>
-          <h2 className="font-heading text-4xl sm:text-7xl font-black uppercase tracking-tighter">
+          <h2 className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tighter">
             Voices of <br /> <span className="text-muted-foreground">Collaborators</span>
           </h2>
         </motion.div>
@@ -70,31 +70,31 @@ export default function Testimonials() {
         <Carousel
           opts={{ align: "start", loop: true }}
           setApi={setApi}
-          className="relative px-2 sm:px-12"
+          className="relative px-4 sm:px-12"
         >
           <CarouselContent className="-ml-4 sm:-ml-8">
             {items.map((t, i) => (
               <CarouselItem key={i} className="pl-4 sm:pl-8 md:basis-1/2 lg:basis-1/3">
-                <blockquote className="h-full group relative border-4 border-foreground dark:border-white bg-card brutal-shadow p-6 sm:p-8 flex flex-col transition-all hover:-translate-y-2 hover:translate-x-2 hover:shadow-none">
-                  <Quote className="size-8 sm:size-10 text-primary/20 absolute top-4 right-4 group-hover:text-primary/40 transition-colors" />
+                <blockquote className="h-full group relative border-4 border-foreground dark:border-white bg-card brutal-shadow p-8 flex flex-col transition-all hover:-translate-y-2 hover:translate-x-2 hover:shadow-none">
+                  <Quote className="size-10 text-primary/20 absolute top-4 right-4 group-hover:text-primary/40 transition-colors" />
 
-                  <div className="flex-1 italic font-body text-sm sm:text-base text-foreground/80 leading-relaxed mb-6 sm:mb-8 relative z-10">
+                  <div className="flex-1 italic font-body text-foreground/80 leading-relaxed mb-8 relative z-10">
                     "{t.quote}"
                   </div>
 
-                  <div className="flex items-center pt-5 sm:pt-6 border-t-2 border-foreground/10 mt-auto">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 border-2 border-foreground dark:border-white bg-background p-1 shrink-0 grayscale group-hover:grayscale-0 transition-all duration-300">
+                  <div className="flex items-center pt-6 border-t-2 border-foreground/10 mt-auto">
+                    <div className="w-14 h-14 border-2 border-foreground dark:border-white bg-background p-1 shrink-0 grayscale group-hover:grayscale-0 transition-all duration-300">
                       <img
                         src={t.image}
                         alt={t.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="ml-3 sm:ml-4 overflow-hidden">
-                      <cite className="not-italic block font-heading text-lg sm:text-xl font-black uppercase tracking-tight text-foreground truncate">
+                    <div className="ml-4 overflow-hidden">
+                      <cite className="not-italic block font-heading text-xl font-black uppercase tracking-tight text-foreground truncate">
                         {t.name}
                       </cite>
-                      <p className="font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-muted-foreground truncate">
+                      <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground truncate">
                         {t.role}
                       </p>
                     </div>

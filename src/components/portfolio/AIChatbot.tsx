@@ -233,9 +233,9 @@ export default function AIChatbot() {
     <>
       <button
         onClick={toggleChat}
-        className="fixed bottom-6 left-6 z-50 h-14 w-14 sm:size-16 bg-primary text-primary-foreground border-4 border-foreground dark:border-white brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center group"
+        className="fixed bottom-6 left-6 z-50 h-16 w-16 bg-primary text-primary-foreground border-4 border-foreground dark:border-white brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center group"
       >
-        {isOpen ? <X className="size-7 sm:size-8" /> : <Terminal className="size-7 sm:size-8 group-hover:scale-110 transition-transform" />}
+        {isOpen ? <X className="size-8" /> : <Terminal className="size-8 group-hover:scale-110 transition-transform" />}
       </button>
 
       <AnimatePresence>
@@ -244,13 +244,13 @@ export default function AIChatbot() {
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="fixed bottom-24 left-4 right-4 sm:left-6 sm:right-auto sm:w-[500px] h-[75vh] sm:h-[600px] max-h-[800px] bg-card border-4 border-foreground dark:border-white brutal-shadow flex flex-col font-mono"
+            className="fixed bottom-24 left-6 z-50 w-[350px] sm:w-[500px] h-[600px] bg-card border-4 border-foreground dark:border-white brutal-shadow flex flex-col font-mono"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-3 sm:p-4 border-b-4 border-foreground dark:border-white bg-primary text-primary-foreground">
+            <div className="flex items-center justify-between p-4 border-b-4 border-foreground dark:border-white bg-primary text-primary-foreground">
               <div className="flex items-center gap-3">
                 <Terminal className="size-4" />
-                <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em]">Sys.Active_Brain_v4.0</span>
+                <span className="text-xs font-black uppercase tracking-[0.2em]">Sys.Active_Brain_v4.0</span>
               </div>
               <button onClick={toggleChat} className="hover:bg-foreground/20 p-1">
                 <X className="size-4" />
@@ -260,22 +260,22 @@ export default function AIChatbot() {
             {/* Content */}
             <div className="flex-1 flex flex-col bg-background relative overflow-hidden">
               <div className="absolute inset-0 bg-texture-dots opacity-10 pointer-events-none" />
-              <ScrollArea className="flex-1 p-4 sm:p-6 relative z-10">
-                <div className="space-y-6 sm:space-y-8">
+              <ScrollArea className="flex-1 p-6 relative z-10">
+                <div className="space-y-8">
                   {messages.map((message) => (
                     <div
                       key={message.id}
                       className={`flex flex-col ${message.sender === 'user' ? 'items-end' : 'items-start'}`}
                     >
                       <div
-                        className={`max-w-[95%] sm:max-w-[90%] border-2 border-foreground dark:border-white px-3 py-2 sm:px-4 sm:py-3 brutal-shadow-sm ${
+                        className={`max-w-[90%] border-2 border-foreground dark:border-white px-4 py-3 brutal-shadow-sm ${
                           message.sender === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground'
                         }`}
                       >
-                        <p className="text-[9px] sm:text-[10px] font-bold uppercase opacity-50 mb-1">
+                        <p className="text-[10px] font-bold uppercase opacity-50 mb-1">
                           {message.sender === 'bot' ? 'Root' : 'User'}_Log:
                         </p>
-                        <p className="text-xs sm:text-sm font-bold leading-relaxed whitespace-pre-wrap">{message.text}</p>
+                        <p className="text-sm font-bold leading-relaxed whitespace-pre-wrap">{message.text}</p>
                       </div>
 
                       {message.sender === 'bot' && message.suggestions && (
@@ -284,7 +284,7 @@ export default function AIChatbot() {
                             <button
                               key={idx}
                               onClick={() => handleSuggestionClick(s)}
-                              className="text-[9px] sm:text-[10px] font-black border-2 border-foreground dark:border-white bg-background px-2.5 py-1 sm:px-3 sm:py-1.5 uppercase hover:bg-primary hover:text-primary-foreground transition-all brutal-shadow-xs"
+                              className="text-[10px] font-black border-2 border-foreground dark:border-white bg-background px-3 py-1.5 uppercase hover:bg-primary hover:text-primary-foreground transition-all brutal-shadow-xs"
                             >
                               {s}
                             </button>
@@ -294,8 +294,8 @@ export default function AIChatbot() {
                     </div>
                   ))}
                   {isTyping && (
-                    <div className="border-2 border-foreground dark:border-white px-3 py-1.5 sm:px-4 sm:py-2 bg-muted text-foreground animate-pulse w-fit">
-                      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest italic">Syncing Credentials...</span>
+                    <div className="border-2 border-foreground dark:border-white px-4 py-2 bg-muted text-foreground animate-pulse w-fit">
+                      <span className="text-xs font-bold uppercase tracking-widest italic">Syncing Credentials...</span>
                     </div>
                   )}
                   <div ref={messagesEndRef} />
@@ -304,25 +304,25 @@ export default function AIChatbot() {
             </div>
 
             {/* Footer */}
-            <div className="p-3 sm:p-4 border-t-4 border-foreground dark:border-white bg-muted/30 flex gap-2 sm:gap-3">
+            <div className="p-4 border-t-4 border-foreground dark:border-white bg-muted/30 flex gap-3">
               <div className="flex-1 relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-bold text-sm sm:text-base">{'>'}</span>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-bold">{'>'}</span>
                 <Input
                   ref={inputRef}
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Query system..."
-                  className="rounded-none border-2 border-foreground dark:border-white bg-background h-10 sm:h-12 pl-7 sm:pl-8 font-mono text-xs sm:text-sm focus-visible:ring-0"
+                  className="rounded-none border-2 border-foreground dark:border-white bg-background h-12 pl-8 font-mono text-sm focus-visible:ring-0"
                 />
               </div>
               <Button
                 onClick={handleSendMessage}
                 size="icon"
-                className="h-10 w-10 sm:h-12 sm:w-12 rounded-none border-2 border-foreground dark:border-white bg-primary text-primary-foreground brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none"
+                className="h-12 w-12 rounded-none border-2 border-foreground dark:border-white bg-primary text-primary-foreground brutal-shadow-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none"
                 disabled={!inputValue.trim()}
               >
-                <Send className="size-4 sm:size-5" />
+                <Send className="size-5" />
               </Button>
             </div>
           </motion.div>

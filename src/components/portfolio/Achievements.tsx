@@ -66,17 +66,17 @@ export default function Achievements() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-12 sm:mb-16"
+          className="mb-16"
         >
           <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-primary text-primary-foreground font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
             System.Honors
           </div>
-          <h2 className="font-heading text-4xl sm:text-7xl font-black uppercase tracking-tighter">
+          <h2 className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tighter">
             Recognized <br /> <span className="text-primary/70">Milestones</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((a, i) => (
             <AchievementCard key={i} a={a} index={i} />
           ))}
@@ -96,10 +96,10 @@ function AchievementCard({ a, index }: { a: any; index: number }) {
       animate={inView ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
       style={{ originY: 0 }}
-      className="group relative border-4 border-foreground dark:border-white bg-card brutal-shadow p-5 sm:p-6 flex flex-col hover:-translate-y-2 hover:translate-x-2 hover:shadow-none transition-all duration-200 h-full"
+      className="group relative border-4 border-foreground dark:border-white bg-card brutal-shadow p-6 flex flex-col hover:-translate-y-2 hover:translate-x-2 hover:shadow-none transition-all duration-200 h-full"
     >
-      <div className="flex justify-between items-start mb-4 sm:mb-6">
-        <div className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-foreground dark:border-white p-1 bg-background shrink-0">
+      <div className="flex justify-between items-start mb-6">
+        <div className="w-16 h-16 border-2 border-foreground dark:border-white p-1 bg-background shrink-0">
           <img
             src={a.image}
             alt={a.title}
@@ -107,19 +107,19 @@ function AchievementCard({ a, index }: { a: any; index: number }) {
             className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
-        <div className="font-mono text-[9px] sm:text-xs font-bold px-2 py-1 bg-foreground text-background whitespace-nowrap">
+        <div className="font-mono text-[10px] sm:text-xs font-bold px-2 py-1 bg-foreground text-background whitespace-nowrap">
           {a.date}
         </div>
       </div>
 
       <div className="flex-1 flex flex-col">
-        <div className="font-mono text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-muted-foreground mb-1">
+        <div className="font-mono text-[10px] uppercase font-bold tracking-widest text-muted-foreground mb-1">
           [{a.org}]
         </div>
-        <h3 className="font-heading text-xl sm:text-2xl font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors mb-2 sm:mb-3">
+        <h3 className="font-heading text-2xl font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors mb-3">
           {a.title}
         </h3>
-        <p className="font-body text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
+        <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
           {a.description}
         </p>
       </div>

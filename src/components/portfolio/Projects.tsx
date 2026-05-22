@@ -60,7 +60,7 @@ export default function Projects() {
       <div className="absolute inset-0 bg-texture-dots opacity-40 pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full max-w-7xl">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16 gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -69,14 +69,14 @@ export default function Projects() {
             <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-primary text-black font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
               Sys.Deployments
             </div>
-            <h2 className="font-heading text-4xl sm:text-7xl font-black uppercase tracking-tighter">
+            <h2 className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tighter">
               Featured <br /> Archives
             </h2>
           </motion.div>
           
-          <div className="font-mono text-xs sm:text-sm uppercase tracking-widest text-muted-foreground sm:text-right">
-            Total count: {items.length} <br className="hidden sm:block" />
-            <span className="sm:inline hidden">STATUS: </span>All Systems Operational
+          <div className="font-mono text-sm uppercase tracking-widest text-muted-foreground sm:text-right">
+            Total count: {items.length} <br />
+            STATUS: All Systems Operational
           </div>
         </div>
 
