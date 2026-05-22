@@ -1,108 +1,106 @@
-import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 
 type Skill = { name: string; level: number };
 const groups: { title: string; skills: Skill[] }[] = [
   {
-    title: "ENG_FRONTEND",
+    title: "Frontend Development",
     skills: [
-      { name: "HTML/CSS", level: 95 },
-      { name: "JavaScript/TS", level: 75 },
-      { name: "React/Tailwind", level: 80 },
+      { name: "HTML", level: 95 },
+      { name: "CSS", level: 90 },
+      { name: "Bootstrap", level: 65 },
+      { name: "TypeScript", level: 50 },
+      { name: "JavaScript", level: 75 },
+      { name: "Tailwind CSS", level: 80 },
+      { name: "Front-End Development", level: 80 },
     ],
   },
   {
-    title: "ENG_BACKEND",
+    title: "Backend Development",
     skills: [
-      { name: "Java/Spring", level: 70 },
-      { name: "Python/Django", level: 75 },
-      { name: "SQL/MongoDB", level: 65 },
+      { name: "Java", level: 75 },
+      { name: "MySQL", level: 65 },
+      { name: "Spring Boot", level: 65 },
+      { name: "DBMS", level: 60 },
+      { name: "Django", level: 75 },
+      { name: "MongoDB", level: 50 },
     ],
   },
   {
-    title: "DATA_SCIENCE",
+    title: "AI/ML & Data Analytics",
     skills: [
+      { name: "Python", level: 80 },
       { name: "Data Analysis", level: 90 },
-      { name: "Stat/Tableau", level: 70 },
-      { name: "Python ML Base", level: 80 },
+      { name: "Statistics", level: 70 },
+      { name: "Tableau", level: 60 },
+      { name: "Data Analytics", level: 75 },
+      { name: "Power BI", level: 70 },
     ],
   },
   {
-    title: "LEADERSHIP_OS",
+    title: "Leadership & Communication",
     skills: [
-      { name: "Comm & Pitch", level: 85 },
-      { name: "Team Strategy", level: 90 },
-      { name: "Student HOD Mgmt", level: 95 },
+      { name: "Communication", level: 80 },
+      { name: "Strategic Planning", level: 85 },
+      { name: "Problem Solving", level: 90 },
+      { name: "Student Leadership", level: 95 },
+      { name: "Project Management", level: 90 },
+      { name: "Public Speaking", level: 80 },
+      { name: "Time Management", level: 85 },
+      { name: "Team Management", level: 90 },
+    ],
+  },
+  {
+    title: "Core Concepts",
+    skills: [
+      { name: "Data Structures & Algorithms (DSA)", level: 65 },
+      { name: "Computer Networks", level: 50 },
+      { name: "Database Management System", level: 45 },
+      { name: "Operating System", level: 50 },
     ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-24 border-b brutal-border bg-background">
-      <div className="absolute inset-0 bg-cyber-grid opacity-30 pointer-events-none" />
-
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-16"
-        >
-          <div className="inline-block border-2 border-foreground dark:border-white px-4 py-2 bg-foreground text-background font-mono font-bold text-sm uppercase brutal-shadow tracking-widest mb-4">
-            Module.Skills
-          </div>
-          <h2 className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tighter">
-            Technical <br /> <span className="text-muted-foreground/80">Capacities</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {groups.map((g, index) => (
-            <SkillGroup key={g.title} title={g.title} skills={g.skills} index={index} />
-          ))}
-        </div>
+    <section id="skills" className="container mx-auto py-20">
+      <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground mb-8">
+        Skills
+      </h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {groups.map((g) => (
+          <SkillGroup key={g.title} title={g.title} skills={g.skills} />
+        ))}
       </div>
     </section>
   );
 }
 
-function SkillGroup({ title, skills, index }: { title: string; skills: Skill[]; index: number }) {
+function SkillGroup({ title, skills }: { title: string; skills: Skill[] }) {
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
-
   return (
-    <motion.article
+    <article
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ type: "spring", stiffness: 100, delay: index * 0.1 }}
-      className="border-2 border-foreground dark:border-white p-6 bg-background brutal-shadow hover:-translate-y-1 transition-transform group"
+      data-inview={inView}
+      className="rounded-xl border bg-card p-5 shadow-sm opacity-0 data-[inview=true]:opacity-100 data-[inview=true]:animate-fade-slide-up"
     >
-      <h3 className="font-mono text-sm tracking-widest font-bold uppercase border-b-2 border-foreground/20 pb-4 mb-6 group-hover:text-primary transition-colors">
-        {'>'} {title}
-      </h3>
-      <ul className="space-y-6 lg:space-y-8">
-        {skills.map((s, i) => (
+      <h3 className="font-heading text-xl text-foreground mb-4">{title}</h3>
+      <ul className="space-y-3">
+        {skills.map((s) => (
           <li key={s.name}>
-            <div className="flex justify-between font-mono text-xs font-bold mb-2 text-foreground uppercase tracking-tight">
+            <div className="flex justify-between text-sm">
               <span>{s.name}</span>
-              <span>{s.level} / 100</span>
+              <span>{s.level}%</span>
             </div>
-            {/* Brutalist segmented or hard-block loading bar */}
-            <div className="h-4 border-2 border-foreground dark:border-white w-full bg-muted relative overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={inView ? { width: `${s.level}%` } : { width: 0 }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: "circOut" }}
-                className="absolute top-0 left-0 h-full bg-foreground"
-              >
-                {/* Stripe pattern for brutalist loading bar */}
-                <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.1)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.1)_75%,transparent_75%,transparent)] bg-[length:16px_16px]" />
-              </motion.div>
+            <div className="h-2 bg-muted rounded-full overflow-hidden mt-1">
+              <div
+                className="h-full bg-primary transition-[width] duration-1000 ease-in-out"
+                style={{ width: inView ? `${s.level}%` : 0 }}
+                aria-label={`${s.name} proficiency`}
+              />
             </div>
           </li>
         ))}
       </ul>
-    </motion.article>
+    </article>
   );
 }
